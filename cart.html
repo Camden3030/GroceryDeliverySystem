@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shopping Cart</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Your Shopping Cart</h1>
+        <a href="index.html">Continue Shopping</a>
+    </header>
+
+    <section id="cart-items">
+        <h2>Items in Cart</h2>
+        <table>
+            <tr>
+                <th>Product</th>
+                <th>Quantity</th>
+                <th>Price</th>
+                <th>Total</th>
+                <th>Remove</th>
+            </tr>
+            <tr>
+                <td>Apples</td>
+                <td><input type="number" value="1" min="1"></td>
+                <td>$1.00</td>
+                <td>$1.00</td>
+                <td><button>Remove</button></td>
+            </tr>
+            <tr>
+                <td>Bread</td>
+                <td><input type="number" value="2" min="1"></td>
+                <td>$2.50</td>
+                <td>$5.00</td>
+                <td><button>Remove</button></td>
+            </tr>
+        </table>
+
+        <h3>Total Cost: $6.00</h3>
+        <button id="checkout-button">Proceed to Checkout</button>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 Camden Thomson. All rights reserved.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
