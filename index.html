@@ -5,14 +5,156 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Online Grocery Delivery - Home</title>
     <link rel="stylesheet" href="styles.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome for Icons -->
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    <style>
+        /* General Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Roboto', sans-serif;
+        }
+
+        body {
+            background-color: #f8f9fa;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        /* Header */
+        header {
+            background: #28a745;
+            color: white;
+            padding: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        header h1 {
+            font-size: 2rem;
+            margin-bottom: 10px;
+        }
+
+        #search-bar {
+            flex: 1;
+            padding: 8px;
+            margin: 0 10px;
+            border: none;
+            border-radius: 5px;
+            max-width: 300px;
+        }
+
+        #cart-link {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            background-color: #ffc107;
+            padding: 8px 15px;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        #cart-link:hover {
+            background-color: #e0a800;
+        }
+
+        /* Categories Section */
+        #categories {
+            background: #fff;
+            padding: 20px;
+            margin: 20px auto;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            max-width: 1100px;
+        }
+
+        #categories h2 {
+            margin-bottom: 10px;
+            color: #28a745;
+        }
+
+        #categories ul {
+            list-style: none;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        #categories li a {
+            text-decoration: none;
+            background: #17a2b8;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+            display: inline-block;
+        }
+
+        #categories li a:hover {
+            background-color: #138496;
+        }
+
+        /* Promotions Section */
+        #promotions {
+            text-align: center;
+            background: #fff;
+            padding: 30px;
+            margin: 20px auto;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            max-width: 1100px;
+        }
+
+        #promotions h2 {
+            margin-bottom: 10px;
+            color: #007bff;
+        }
+
+        #promotions p {
+            margin-top: 10px;
+            font-size: 1.1rem;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 15px 0;
+            background: #343a40;
+            color: white;
+            margin-top: 20px;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            header {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            #search-bar {
+                margin: 10px 0;
+            }
+
+            #categories ul {
+                flex-direction: column;
+            }
+        }
+    </style>
 </head>
 <body>
+    <!-- Header -->
     <header>
         <h1>Welcome to Our Grocery Store</h1>
         <input type="text" id="search-bar" placeholder="Search for products...">
-        <a href="cart.html" id="cart-link">Shopping Cart</a>
+        <a href="cart.html" id="cart-link"><i class="fas fa-shopping-cart"></i> Shopping Cart</a>
     </header>
 
+    <!-- Categories -->
     <section id="categories">
         <h2>Product Categories</h2>
         <ul>
@@ -25,11 +167,13 @@
         </ul>
     </section>
 
+    <!-- Promotions -->
     <section id="promotions">
         <h2>Featured Promotions</h2>
-        <p>Check out our latest discounts and deals!</p>
+        <p>Check out our latest discounts and deals! Fresh produce, dairy, snacks, and more – all at unbeatable prices.</p>
     </section>
 
+    <!-- Footer -->
     <footer>
         <p>&copy; 2024 Camden Thomson. All rights reserved.</p>
     </footer>
@@ -37,3 +181,4 @@
     <script src="script.js"></script>
 </body>
 </html>
+
