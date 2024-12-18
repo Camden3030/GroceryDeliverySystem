@@ -4,28 +4,201 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Delivery Tracking</title>
-    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <style>
+        /* General Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Roboto', sans-serif;
+        }
+
+        body {
+            background-color: #f8f9fa;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        /* Header */
+        header {
+            background: #007bff;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+        }
+
+        header h1 {
+            font-size: 2rem;
+        }
+
+        header a {
+            color: #ffc107;
+            text-decoration: none;
+            font-weight: bold;
+            display: inline-block;
+            margin-top: 10px;
+            transition: color 0.3s ease;
+        }
+
+        header a:hover {
+            color: #e0a800;
+        }
+
+        /* Tracking Section */
+        #tracking-info {
+            max-width: 900px;
+            margin: 20px auto;
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        #tracking-info h2 {
+            color: #28a745;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+
+        .status-text {
+            font-size: 1.2rem;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        /* Progress Bar */
+        .progress-container {
+            width: 100%;
+            background-color: #ddd;
+            border-radius: 20px;
+            overflow: hidden;
+            margin: 20px 0;
+        }
+
+        .progress-bar {
+            height: 20px;
+            width: 70%; /* Set dynamically with JS */
+            background-color: #28a745;
+            text-align: center;
+            line-height: 20px;
+            color: white;
+            font-size: 0.9rem;
+            transition: width 0.5s ease-in-out;
+        }
+
+        /* Map Placeholder */
+        #map {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            height: 300px;
+            background: url('https://via.placeholder.com/600x300?text=Map+Placeholder') no-repeat center center;
+            background-size: cover;
+            margin-top: 20px;
+        }
+
+        #map p {
+            font-size: 1.1rem;
+            color: #555;
+            background: rgba(255, 255, 255, 0.8);
+            padding: 10px;
+            border-radius: 8px;
+        }
+
+        /* Countdown Timer */
+        #arrival-time {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #dc3545;
+            text-align: center;
+            margin-top: 15px;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 15px;
+            background: #343a40;
+            color: white;
+            margin-top: 20px;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 1.5rem;
+            }
+            .status-text {
+                font-size: 1rem;
+            }
+            #map {
+                height: 200px;
+            }
+        }
+    </style>
 </head>
 <body>
+    <!-- Header -->
     <header>
         <h1>Track Your Delivery</h1>
         <a href="index.html">Back to Home</a>
     </header>
 
+    <!-- Tracking Info -->
     <section id="tracking-info">
         <h2>Current Delivery Status</h2>
-        <p>Your groceries are on the way!</p>
-        <div id="map">
-            <p>[Map with GPS tracking would be here]</p>
-            <p>Driver Location: 123 Main St.</p>
-            <p>Estimated Arrival: 15 minutes</p>
+        <p class="status-text">Your groceries are on the way! Follow the progress below:</p>
+
+        <!-- Progress Bar -->
+        <div class="progress-container">
+            <div class="progress-bar" id="progress-bar">70%</div>
         </div>
+
+        <!-- Map Placeholder -->
+        <div id="map">
+            <p>Driver Location: 123 Main St.</p>
+        </div>
+
+        <!-- Estimated Arrival -->
+        <p id="arrival-time">Estimated Arrival: <span id="timer">15:00</span></p>
     </section>
 
+    <!-- Footer -->
     <footer>
         <p>&copy; 2024 Camden Thomson. All rights reserved.</p>
     </footer>
 
-    <script src="script.js"></script>
+    <script>
+        // Progress Bar Animation
+        const progressBar = document.getElementById('progress-bar');
+        let progress = 70; // Example starting progress
+        const updateProgress = () => {
+            if (progress < 100) {
+                progress += 1;
+                progressBar.style.width = progress + '%';
+                progressBar.textContent = progress + '%';
+            }
+        };
+        setInterval(updateProgress, 3000); // Increment progress every 3 seconds
+
+        // Countdown Timer
+        const timerElement = document.getElementById('timer');
+        let timeLeft = 15 * 60; // 15 minutes in seconds
+        const countdown = () => {
+            const minutes = Math.floor(timeLeft / 60);
+            const seconds = timeLeft % 60;
+            timerElement.textContent = `${minutes}:${seconds < 10 ? '0' : ''}${seconds}`;
+            timeLeft--;
+            if (timeLeft < 0) {
+                clearInterval(timerInterval);
+                timerElement.textContent = "Arriving Now!";
+            }
+        };
+        const timerInterval = setInterval(countdown, 1000);
+    </script>
 </body>
 </html>
