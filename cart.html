@@ -4,13 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Shopping Cart</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="Cart.css">
     <script src="cart.js" defer></script>
 </head>
 <body>
     <header>
-        <h1>Your Shopping Cart</h1>
-        <a href="index.html" id="continue-shopping">Continue Shopping</a>
+        <nav>
+            <h1>Your Shopping Cart</h1>
+            <a href="index.html" id="continue-shopping">Continue Shopping</a>
+        </nav>
     </header>
 
     <section id="cart-items">
@@ -43,6 +45,7 @@
                 </tr>
             </tbody>
         </table>
+
         <div id="cart-summary">
             <h3>Total Cost: <span id="total-cost">$6.00</span></h3>
             <button id="checkout-button">Proceed to Checkout</button>
@@ -50,8 +53,14 @@
     </section>
 
     <footer>
+        <div class="footer-links">
+            <a href="about.html">About Us</a>
+            <a href="contact.html">Contact</a>
+            <a href="privacy-policy.html">Privacy Policy</a>
+        </div>
         <p>&copy; 2024 Camden Thomson. All rights reserved.</p>
     </footer>
 </body>
 </html>
+
 
