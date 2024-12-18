@@ -5,156 +5,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Shopping Cart</title>
     <link rel="stylesheet" href="styles.css">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
-    <style>
-        /* General Reset */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Roboto', sans-serif;
-        }
-
-        body {
-            background-color: #f8f9fa;
-            color: #333;
-            line-height: 1.6;
-        }
-
-        header {
-            background: #007bff;
-            color: white;
-            padding: 20px;
-            text-align: center;
-        }
-
-        header h1 {
-            font-size: 2rem;
-        }
-
-        header a {
-            text-decoration: none;
-            color: #ffc107;
-            font-weight: bold;
-            margin-top: 10px;
-            display: inline-block;
-            transition: color 0.3s ease;
-        }
-
-        header a:hover {
-            color: #e0a800;
-        }
-
-        #cart-items {
-            max-width: 1100px;
-            margin: 20px auto;
-            background: white;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-        }
-
-        #cart-items h2 {
-            color: #28a745;
-            margin-bottom: 20px;
-        }
-
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-bottom: 20px;
-        }
-
-        th, td {
-            padding: 12px;
-            text-align: center;
-            border: 1px solid #ddd;
-        }
-
-        th {
-            background-color: #f8f9fa;
-            font-weight: bold;
-        }
-
-        tr:nth-child(even) {
-            background-color: #f9f9f9;
-        }
-
-        tr:hover {
-            background-color: #f1f1f1;
-        }
-
-        input[type="number"] {
-            width: 60px;
-            padding: 5px;
-            text-align: center;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-        }
-
-        button {
-            background: #dc3545;
-            color: white;
-            border: none;
-            padding: 8px 12px;
-            border-radius: 5px;
-            cursor: pointer;
-            transition: background-color 0.3s ease;
-        }
-
-        button:hover {
-            background: #c82333;
-        }
-
-        #checkout-button {
-            background: #28a745;
-            font-size: 1.1rem;
-            display: block;
-            margin: 20px auto;
-            padding: 10px 20px;
-        }
-
-        #checkout-button:hover {
-            background: #218838;
-        }
-
-        h3 {
-            text-align: right;
-            margin: 20px 0;
-            font-size: 1.2rem;
-        }
-
-        footer {
-            text-align: center;
-            padding: 15px;
-            background: #343a40;
-            color: white;
-            margin-top: 20px;
-        }
-
-        /* Responsive Design */
-        @media (max-width: 768px) {
-            table {
-                font-size: 0.9rem;
-            }
-
-            input[type="number"] {
-                width: 50px;
-            }
-        }
-    </style>
+    <script src="cart.js" defer></script>
 </head>
 <body>
-    <!-- Header -->
     <header>
         <h1>Your Shopping Cart</h1>
-        <a href="index.html">Continue Shopping</a>
+        <a href="index.html" id="continue-shopping">Continue Shopping</a>
     </header>
 
-    <!-- Cart Items -->
     <section id="cart-items">
         <h2>Items in Cart</h2>
-        <table>
+        <table id="cart-table">
             <thead>
                 <tr>
                     <th>Product</th>
@@ -165,32 +26,32 @@
                 </tr>
             </thead>
             <tbody>
+                <!-- Example Item -->
                 <tr>
                     <td>Apples</td>
-                    <td><input type="number" value="1" min="1"></td>
+                    <td><input type="number" value="1" min="1" class="quantity-input"></td>
                     <td>$1.00</td>
-                    <td>$1.00</td>
-                    <td><button>Remove</button></td>
+                    <td class="item-total">$1.00</td>
+                    <td><button class="remove-btn">Remove</button></td>
                 </tr>
                 <tr>
                     <td>Bread</td>
-                    <td><input type="number" value="2" min="1"></td>
+                    <td><input type="number" value="2" min="1" class="quantity-input"></td>
                     <td>$2.50</td>
-                    <td>$5.00</td>
-                    <td><button>Remove</button></td>
+                    <td class="item-total">$5.00</td>
+                    <td><button class="remove-btn">Remove</button></td>
                 </tr>
             </tbody>
         </table>
-
-        <h3>Total Cost: $6.00</h3>
-        <button id="checkout-button">Proceed to Checkout</button>
+        <div id="cart-summary">
+            <h3>Total Cost: <span id="total-cost">$6.00</span></h3>
+            <button id="checkout-button">Proceed to Checkout</button>
+        </div>
     </section>
 
-    <!-- Footer -->
     <footer>
         <p>&copy; 2024 Camden Thomson. All rights reserved.</p>
     </footer>
-
-    <script src="script.js"></script>
 </body>
 </html>
+
